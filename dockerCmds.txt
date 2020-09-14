@@ -1,6 +1,6 @@
-sudo docker run --name=influxdb -p 8086:8086 -v /home/maestero/influxdb:/var/lib/influxdb  -v /home/maestero/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro  sres.web.boeing.com:5000/influxdb -config /etc/influxdb/influxdb.conf
+sudo docker run --name=influxdb -p 8086:8086 -v /home/maestero/influxdb:/var/lib/influxdb  -v /home/maestero/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro  influxdb -config /etc/influxdb/influxdb.conf
 
-sudo docker run -d --name=chronograf -p 8888:8888 --net=influxdb -v C:/th135e/Learning/InfluxDB/dbdata/chronograf:/var/lib/chronograf sres.web.boeing.com:5000/chronograf --influxdb-url=http://influxdb:8086
+sudo docker run -d --name=chronograf -p 8888:8888 --net=influxdb -v C:/th135e/Learning/InfluxDB/dbdata/chronograf:/var/lib/chronograf chronograf --influxdb-url=http://influxdb:8086
 
 
-docker run -d --name=influxdb --net=influxdb -p 8086:8086 -v C:/th135e/Learning/InfluxDB/dbdata/data:/var/lib/influxdb  -v C:/th135e/Learning/InfluxDB/dbdata/influxdb.conf:/etc/influxdb/influxdb.conf:ro  sres.web.boeing.com:5000/influxdb -config /etc/influxdb/influxdb.conf
+docker run -d --name=influxdb --net=influxdb -p 8086:8086 -v C:/th135e/Learning/InfluxDB/dbdata/data:/var/lib/influxdb  -v C:/th135e/Learning/InfluxDB/dbdata/influxdb.conf:/etc/influxdb/influxdb.conf:ro  influxdb -config /etc/influxdb/influxdb.conf
